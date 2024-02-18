@@ -1,0 +1,1 @@
+console.log("This console log is from the server.js file in the backend folder");
