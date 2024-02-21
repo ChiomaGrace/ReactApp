@@ -5,7 +5,7 @@ const {cloudinary} = require('../utils/cloudinary'); //needed in order for the f
 console.log("This console log is from the controller, resident.js, file in the backend folder.")
 
 const createResident = (request, response) => {
-    console.log("This console log is from the createResident function in the controller, and it contains the data from the form submitted from the CreatResident component in the frontend:", "Request.body:", request.body);
+    console.log("This console log is from the createResident function in the controller, and it contains the data from the form submitted in the CreatResident component that is in the frontend:", "Request.body:", request.body);
     // submittedResident= new Resident()
     //     submittedResident.firstName = request.body.firstName;
     //     submittedResident.lastName = request.body.lastName;
