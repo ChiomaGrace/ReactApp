@@ -1,0 +1,9 @@
+img {
+    width: -webkit-fill-available;
+}
+
+@media (min-width: 768px) {
+    img {
+        width: 100%;
+    }
+}
