@@ -4,11 +4,11 @@ import axios from "axios";
 
 function CreateResident() {
     const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [profilePicture, setProfilePicture] = useState('');
-    const [street, setStreet] = useState('');
-    const [physicalFeatures, setPhysicalFeatures] = useState('');
-    const [occupation, setOccupation] = useState('');
+    // const [lastName, setLastName] = useState('');
+    // const [profilePicture, setProfilePicture] = useState('');
+    // const [street, setStreet] = useState('');
+    // const [physicalFeatures, setPhysicalFeatures] = useState('');
+    // const [occupation, setOccupation] = useState('');
 
 
     function handleSubmit(event) {
@@ -17,7 +17,8 @@ function CreateResident() {
         let residentData = {
             firstName : firstName
         }
-        fetch( process.env.REACT_APP_BACKEND_URL + '/submitResident', {
+        // fetch( process.env.REACT_APP_BACKEND_URL + '/submitResident', {
+        fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
             method: 'post',
             headers: {
                 "Content-type": "application/json",   

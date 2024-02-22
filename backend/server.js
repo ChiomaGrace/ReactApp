@@ -28,8 +28,6 @@ const connectDatabase =  async () => {
 
 app.use(cors({
   origin: [process.env.REACT_APP_FRONTEND_URL, "http://127.0.0.1:3000", "http://localhost:3000"],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin', 'Access-Control-Allow-Headers'],
   credentials: true
 }));
 // console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
