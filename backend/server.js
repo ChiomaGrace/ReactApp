@@ -9,20 +9,23 @@ const dotenv = require("dotenv"); //needed in order to use .env for database
 dotenv.config();
 
 
-const connectDatabase =  async () => {
-    try{
-        const conn = await mongoose.connect(process.env.MONGO_URL,{
-            //must add in order to not get any error messages:
-            useUnifiedTopology:true,
-            useNewUrlParser: true,
-            useCreateIndex: true
-        })
-    }catch(error){
-        console.error(`Error: ${error} `)
-        process.exit(1) //passing 1 - will exit the process with error
-    }
-}  
-// console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
+// const connectDatabase =  async () => {
+//     try{
+//         const conn = await mongoose.connect(process.env.MONGO_URL,{
+//             //must add in order to not get any error messages:
+//             useUnifiedTopology:true,
+//             useNewUrlParser: true,
+//             useCreateIndex: true
+//         })
+//     }catch(error){
+//         console.error(`Error: ${error} `)
+//         process.exit(1) //passing 1 - will exit the process with error
+//     }
+// }  
+const connectDatabase = mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(error => console.error('Could not connect to MongoDB', error));
+console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
 
 app.use(cors({
   origin: [process.env.REACT_APP_FRONTEND_URL, "http://127.0.0.1:3000", "http://localhost:3000"],
