@@ -15,9 +15,9 @@ function CreateResident() {
         let residentData = {
             firstName : firstName
         }
-        // fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
+        fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
         // fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
-        fetch( 'http://127.0.0.1:8000/submitResident', {
+        // fetch( 'http://127.0.0.1:8000/submitResident', {
             method: 'post',
             headers:{ 
                 'Access-Control-Allow-Origin' : '*',
