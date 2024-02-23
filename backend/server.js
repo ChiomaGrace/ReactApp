@@ -22,15 +22,12 @@ const connectDatabase =  async () => {
         process.exit(1) //passing 1 - will exit the process with error
     }
 }  
-// console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
-
-
+console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
 
 app.use(cors({
   origin: [process.env.REACT_APP_FRONTEND_URL, "http://127.0.0.1:3000", "http://localhost:3000"],
-  credentials: true
 }));
-// console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
+console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
 
 // const corsOptions = {
 //   origin: [`${process.env.REACT_APP_FRONTEND_URL}`],
@@ -53,12 +50,9 @@ app.use(cors({
 // };
 // app.use(cors(corsOptions));
 
-
-
 app.use(express.json()); // middleware that parses incoming requests with JSON payloads (HTTP post, put, patch requests) and is based on body-parser aka so you can see/work with form data
 
 app.use(express.urlencoded({ extended: true })); // middleware that parses incoming requests with URL-ecnoded payloads (HTTP post, put, patch requests) and is based on body-parser aka so you can see/work with form data (the extended true part gets rid of the deprication warning in the terminal)
-
 
 app.use('/', routes);  //this invokes the routes.js file
 

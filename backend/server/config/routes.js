@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const residentController = require("../controllers/residents"); //links the resident controller which has all the functions
-const upload = require("../utils/multer"); //links the multer file
+// const upload = require("../utils/multer"); //links the multer file
 
 console.log("This console log is coming from the routes.js file in the backend folder.");
 
@@ -12,7 +12,7 @@ router.get('/', (request, response) => {
 
 router.post(
     `/submitResident`,  
-    upload.single('file'), //middleware that will take the image, upload it to Cloudinary, and return a request.file object with the file information to the controller
+    // upload.single('file'), //middleware that will take the image, upload it to Cloudinary, and return a request.file object with the file information to the controller
     residentController.createResident,
 );
 

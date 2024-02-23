@@ -1,6 +1,4 @@
-import styles from './CreateResident.module.css'
 import React, {useState} from 'react'; //a hook that allows the programmer to add state to a functional component. It returns an array with two values: the current state and a function to update it
-import axios from "axios";
 
 function CreateResident() {
     const [firstName, setFirstName] = useState('');
@@ -17,12 +15,18 @@ function CreateResident() {
         let residentData = {
             firstName : firstName
         }
-        // fetch( process.env.REACT_APP_BACKEND_URL + '/submitResident', {
-        fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
+        // fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
+        // fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
+        fetch( 'http://127.0.0.1:8000/submitResident', {
             method: 'post',
-            headers: {
+            headers:{ 
+                'Access-Control-Allow-Origin' : '*',
                 "Content-type": "application/json",   
             },
+
+            // headers: {
+            //     "Content-type": "application/json",   
+            // },
             body: JSON.stringify(residentData)
         })
     }
@@ -49,7 +53,7 @@ function CreateResident() {
     //       .then((res) => {
     //         console.log(res);
     //         if (res.data.errors) {
-    //         //   seterrors(res.data.errors);
+            //   seterrors(res.data.errors);
     //             console.log("errors")
     //         } 
     //       })
@@ -60,7 +64,7 @@ function CreateResident() {
         <>
             <div className="container-fluid">
                 <h1 className='text-center'>Create Residency</h1>
-                <p> Environment Variable: {process.env.REACT_APP_BACKEND_URL}</p>
+                {/* <p> Environment Variable: {process.env.REACT_APP_BACKEND_URL}</p> */}
                 <form onSubmit={handleSubmit}>
                     <input type='text' name='firstName' placeholder='First Name' onChange={event => setFirstName(event.target.value)}/>
                     <button>Submit</button>
