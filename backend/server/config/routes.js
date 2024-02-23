@@ -7,7 +7,7 @@ console.log("This console log is coming from the routes.js file in the backend f
 
 router.get('/', (request, response) => {
     console.log("Root route");
-    // response.send("This is a test response from routes.js. If successful, this would display as the html in the browser on port 8000.")
+    response.send("This is a test response from the root route in routes.js. If successful, this would display as the html in the browser on port 8000 or when deployed, on the domain url for the backend server.")
 });
 
 router.post(
