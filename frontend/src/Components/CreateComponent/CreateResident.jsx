@@ -1,4 +1,5 @@
 import React, {useState} from 'react'; //a hook that allows the programmer to add state to a functional component. It returns an array with two values: the current state and a function to update it
+import axios from "axios";
 
 function CreateResident() {
     const [firstName, setFirstName] = useState('');
@@ -15,29 +16,29 @@ function CreateResident() {
         let residentData = {
             firstName : firstName
         }
-        fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
-        // fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
-        // fetch( 'http://127.0.0.1:8000/submitResident', {
-            method: 'post',
-            headers:{ 
-                'Access-Control-Allow-Origin' : '*',
-                "Content-type": "application/json",   
-            },
+        // fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
+        // // fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
+        // // fetch( 'http://127.0.0.1:8000/submitResident', {
+        //     method: 'post',
+        //     headers:{ 
+        //         'Access-Control-Allow-Origin' : '*',
+        //         "Content-type": "application/json",   
+        //     },
 
-            // headers: {
-            //     "Content-type": "application/json",   
-            // },
-            body: JSON.stringify(residentData)
+        //     // headers: {
+        //     //     "Content-type": "application/json",   
+        //     // },
+        //     body: JSON.stringify(residentData)
+        // })
+
+        axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
+        .then((res) => {
+          console.log("Success Response:", res);
         })
-
-        // axios
-        // .post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
-        // .then((res) => {
-        //   console.log("Response:", res);
-        // })
-        // .catch((error) => {
-        //     console.log("Errors:", error);
-        // })
+        .catch((error) => {
+            console.log("Errors:", error);
+        })
     }
 
     // const handleSubmit = async(event) => {
