@@ -11,7 +11,8 @@ router.get('/', (request, response) => {
 });
 
 router.post(
-    `/submitResident`,  
+    // `/submitResident`,  
+    '/submitResident',  
     // upload.single('file'), //middleware that will take the image, upload it to Cloudinary, and return a request.file object with the file information to the controller
     residentController.createResident,
 );

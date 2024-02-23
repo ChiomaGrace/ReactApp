@@ -22,12 +22,12 @@ const connectDatabase =  async () => {
         process.exit(1) //passing 1 - will exit the process with error
     }
 }  
-console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
+// console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
 
 app.use(cors({
   origin: [process.env.REACT_APP_FRONTEND_URL, "http://127.0.0.1:3000", "http://localhost:3000"],
 }));
-console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
+// console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
 
 // const corsOptions = {
 //   origin: [`${process.env.REACT_APP_FRONTEND_URL}`],

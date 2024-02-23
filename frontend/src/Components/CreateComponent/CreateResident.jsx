@@ -29,6 +29,15 @@ function CreateResident() {
             // },
             body: JSON.stringify(residentData)
         })
+
+        // axios
+        // .post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
+        // .then((res) => {
+        //   console.log("Response:", res);
+        // })
+        // .catch((error) => {
+        //     console.log("Errors:", error);
+        // })
     }
 
     // const handleSubmit = async(event) => {
@@ -64,7 +73,7 @@ function CreateResident() {
         <>
             <div className="container-fluid">
                 <h1 className='text-center'>Create Residency</h1>
-                {/* <p> Environment Variable: {process.env.REACT_APP_BACKEND_URL}</p> */}
+                <p> Environment Variable: {process.env.REACT_APP_BACKEND_URL}</p>
                 <form onSubmit={handleSubmit}>
                     <input type='text' name='firstName' placeholder='First Name' onChange={event => setFirstName(event.target.value)}/>
                     <button>Submit</button>

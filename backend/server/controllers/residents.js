@@ -1,6 +1,6 @@
 const {response} = require('express');
 const {Resident} = require('../models/resident');
-const {cloudinary} = require('../utils/cloudinary'); //needed in order for the function to access the cloudinary acoount to upload image
+// const {cloudinary} = require('../utils/cloudinary'); //needed in order for the function to access the cloudinary acoount to upload image
 
 console.log("This console log is from the controller, resident.js, file in the backend folder.")
 
