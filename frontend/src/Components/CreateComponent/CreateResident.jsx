@@ -18,14 +18,11 @@ function CreateResident() {
         }
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
             .then((response) => {
-            if (response.data.errors) {
-                    console.log("This console log is means the form did not submit. Errors:", response.data.errors)
-            }  else {
-                console.log("The form successfully submitted. Data:", residentData);
-            }
-        })
-        .catch((error) => {
-            console.log("Errors:", error);
+                if (response.data.errors) {
+                        console.log("This console log is means the form did not submit. Errors:", response.data.errors)
+                }  else {
+                    console.log("The form successfully submitted. Data:", residentData);
+                }
         })
     }
 
