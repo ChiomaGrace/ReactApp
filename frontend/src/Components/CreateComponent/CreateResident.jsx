@@ -16,59 +16,18 @@ function CreateResident() {
         let residentData = {
             firstName : firstName
         }
-        // fetch( `${process.env.REACT_APP_BACKEND_URL}/submitResident`, {
-        // // fetch( 'https://react-app-backend-production.up.railway.app/submitResident', {
-        // // fetch( 'http://127.0.0.1:8000/submitResident', {
-        //     method: 'post',
-        //     headers:{ 
-        //         'Access-Control-Allow-Origin' : '*',
-        //         "Content-type": "application/json",   
-        //     },
-
-        //     // headers: {
-        //     //     "Content-type": "application/json",   
-        //     // },
-        //     body: JSON.stringify(residentData)
-        // })
-
-        axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
-        .then((res) => {
-          console.log("Success Response:", res);
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/submitResident`, residentData)
+            .then((response) => {
+            if (response.data.errors) {
+                    console.log("This console log is means the form did not submit. Errors:", response.data.errors)
+            }  else {
+                console.log("The form successfully submitted. Data:", residentData);
+            }
         })
         .catch((error) => {
             console.log("Errors:", error);
         })
     }
-
-    // const handleSubmit = async(event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('firstName', firstName);
-    //     await SharedService.createResidentService(formData)
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    
-    //     const newResident = { firstName };
-    //     console.log("New resident:", newResident);
-    
-    //     // setfirstname("");
-    //     // setlastname("");
-    
-    //     //making post request to create a new person
-    //     axios
-    //       .post( process.env.REACT_APP_BACKEND_URL + '/submitResident', newResident)
-    //       .then((res) => {
-    //         console.log(res);
-    //         if (res.data.errors) {
-            //   seterrors(res.data.errors);
-    //             console.log("errors")
-    //         } 
-    //       })
-    //       .catch((error) => console.log(error));
-    //   };
 
     return(
         <>
