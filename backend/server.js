@@ -9,20 +9,10 @@ const dotenv = require("dotenv"); //needed in order to use .env for database
 dotenv.config();
 
 
-const connectDatabase =  async () => {
-  try{
-      const conn = await mongoose.connect(process.env.MONGO_URL,{
-          //must add in order to not get any error messages:
-          useUnifiedTopology:true,
-          useNewUrlParser: true,
-          useCreateIndex: true
-      })
-  }catch(error){
-      console.error(`Error: ${error} `)
-      process.exit(1) //passing 1 - will exit the process with error
-  }
-}  
-// console.log("Mongo Database is connected! Mongo URL:", process.env.MONGO_URL);
+const connectDatabase = mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(error => console.error('Could not connect to MongoDB', error));
+// console.log("Mongo URL:", process.env.MONGO_URL);
 
 
 app.use(cors({
@@ -31,27 +21,6 @@ app.use(cors({
 // app.use(cors())
 
 // console.log("Frontend URL:", process.env.REACT_APP_FRONTEND_URL);
-
-// const corsOptions = {
-//   origin: [`${process.env.REACT_APP_FRONTEND_URL}`],
-//   methods: "GET,HEAD,PUT,OPTIONS,POST,DELETE",
-//   allowedHeaders: [
-//     "Access-Control-Allow-Headers",
-//     "Origin",
-//     "X-Requested-With",
-//     "Content-Type",
-//     "Accept",
-//     "Authorization",
-//     "token",
-//     "Access-Control-Request-Method",
-//     "Access-Control-Request-Headers",
-//     "Access-Control-Allow-Credentials",
-//   ],
-//   credentials: true,
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
-// app.use(cors(corsOptions));
 
 app.use(express.json()); // middleware that parses incoming requests with JSON payloads (HTTP post, put, patch requests) and is based on body-parser aka so you can see/work with form data
 

@@ -1,0 +1,92 @@
+.residentInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    margin-left: 56px;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputDiv p {
+    flex: 0 0 30%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.inputDiv p:nth-child(2) {
+    flex: 0 0 40%;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.inputDiv span {
+    text-align: right;
+    cursor: pointer;
+}
+
+.formInput, .formSelect {
+    display: inline-block !important;
+    width: 64% !important;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 6px;
+}
+
+.formButton {
+    all: unset;
+}
+
+@media (min-width: 768px) {
+    .residentInfo {
+        margin-left: 0px;
+    }
+
+    .formInput {
+        width: 56% !important;
+    }
+    
+    .formSelect {
+        width: 52% !important;
+        margin-right: 42px;
+    }
+    
+    .inputDiv p {
+        flex: 0 0 30%;
+    }
+    
+    .inputDiv p:nth-child(2) {
+        flex: 0 0 40%;
+    }
+} 
+
+@media (min-width: 1024px) {
+    .inputDiv p {
+        flex: 0 0 20%;
+    }   
+    
+    .formInput {
+        width: 66% !important;
+    }
+
+    .formButton {
+        margin-left: 10px !important;
+    }
+
+} 
+
+@media (min-width: 1440px) {
+    .formInput {
+        width: 62% !important;
+    }
+
+
+    .formButton {
+        margin-left: 62px !important;
+    }
+
+} 
