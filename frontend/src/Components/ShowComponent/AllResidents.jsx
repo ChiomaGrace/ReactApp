@@ -22,7 +22,7 @@ function Census() {
         axios.delete(`${process.env.REACT_APP_BACKEND_URL}/deleteResident/${id}`)
         .then(() => {
             console.log("The resident has been deleted");
-            const updateResidents = residents.filter(resident => resident._id != id) //This will return everything but the deleted resident
+            const updateResidents = residents.filter(resident => resident._id !== id) //This will return everything but the deleted resident
             // console.log("Updated Resident List:", updateResidents);
             setResidents(updateResidents); //updating the useState so the deleted resident is no longer in the data
         })

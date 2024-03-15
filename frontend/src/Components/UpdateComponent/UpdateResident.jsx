@@ -18,7 +18,7 @@ function UpdateResident() {
             // console.log("Fetched Data:", isFetched);
         })
         .catch(error => console.log(error))
-    }, [])
+    }, [id])
 
     const [isToggled, setToggle] = useState(false);
     const toggleStatus = {};    
@@ -93,9 +93,9 @@ function UpdateResident() {
                 console.log("This console log means the form did not submit successfully because there was a backend validation error. Errors:", response.data.errors);
             }  else {
                 // console.log("The form successfully submitted to the backend");
-                for ( const [key, value] of formData) {
-                    // console.log(`Submitted Data: This is the key: ${key}, and this is the value: ${value}.`);
-                }
+                // for ( const [key, value] of formData) {
+                //     console.log(`Submitted Data: This is the key: ${key}, and this is the value: ${value}.`);
+                // }
                 setToggle(false);
                 if ( formData.get("firstName") ) {
                     // console.log("This means the firstName value was changed, so we need to update the object.");

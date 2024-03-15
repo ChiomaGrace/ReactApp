@@ -117,9 +117,9 @@ function CreateResident() {
                 }  else {
                     setSubmitted(true);
                     // console.log("The form successfully submitted to the backend. Submitted Data:");
-                    for (const [key, value] of formData) {
-                        // console.log(key, value);
-                    }
+                    // for (const [key, value] of formData) {
+                    //     console.log(key, value);
+                    // }
                 }
             });
         } else {
